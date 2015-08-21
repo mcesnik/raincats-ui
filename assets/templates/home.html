@@ -1,0 +1,79 @@
+<section class="container box feature1">
+	<div class="row">
+		<div class="12u">
+			<header class="first major">
+				<h2>Welcome</h2>
+				<p>To the home of the <strong>RainCats</strong> softball team! Feel free to browse around and get to know us.</p>
+			</header>
+		</div>
+	</div>
+
+  <!-- (12/n)u -->
+	<div class="row" ng-show="features.length" ng-cloak>
+
+    <div class="{{12/features.length}}u 12u(mobile)" ng-repeat="feature in features">
+			<section>
+				<a ng-href="{{feature.link}}" class="image featured"><img ng-src="{{feature.image.src}}" alt="{{feature.image.alt}}"></a>
+				<header class="second icon {{feature.icon}}">
+					<h3>{{feature.title}}</h3>
+					<div ng-bind-html="feature.body">
+					</div>
+				</header>
+			</section>
+		</div>
+
+	</div>
+
+</section>
+</div>
+
+<div class="container" ng-cloak>
+
+  <div class="row">
+
+    <div class="12u(mobile)" ng-class="{'8u': spotlight, '12u': !spotlight}" ng-show="posts.length">
+
+        <section class="box article-list" ng-show="posts.length">
+          <h2 class="icon fa-newspaper-o">Recent Posts</h2>
+
+          <!-- Excerpt -->
+            <article class="box excerpt" ng-repeat="post in posts">
+              <a ng-href="{{post.link}}" class="image left 6u"><img ng-src="{{post.image.src}}" alt="{{post.image.alt}}"></a>
+              <div>
+                <header>
+                  <span class="date">{{post.date}}</span>
+                  <h3><a ng-href="{{post.link}}">{{post.title}}</a></h3>
+                </header>
+								<div ng-bind-html="post.body">
+								</div>
+              </div>
+            </article>
+
+        </section>
+    </div>
+
+    <div class="12u(mobile)" ng-class="{'4u': post.length, '12u': !posts.length}" ng-show="spotlight">
+
+    <!-- Spotlight -->
+      <section class="box spotlight">
+        <h2 class="icon fa-file-text-o">Spotlight</h2>
+        <article>
+          <a ng-href="{{spotlight.link}}" class="image left 6u"><img ng-src="{{spotlight.image.src}}" alt="{{spotlight.image.alt}}"></a>
+          <div>
+            <header>
+              <span class="date">{{spotlight.date}}</span>
+              <h3><a ng-href="{{spotlight.link}}">{{post.title}}</a></h3>
+            </header>
+            <div ng-bind-html="spotlight.body">
+            </div>
+          </div>
+          <footer>
+            <a href="#" class="button alt icon fa-file-o">Continue Reading</a>
+          </footer>
+        </article>
+      </section>
+    </div>
+
+  </div>
+
+</div>

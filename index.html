@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	ZeroFour by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html ng-app="raincats">
+	<head>
+		<title>RainCats Softball</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+		<link rel="shortcut icon" href="images/favicon.ico"/>
+
+	</head>
+	<body ng-controller="SiteController as siteCtlr" class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<div id="header-wrapper">
+				<div class="container">
+
+					<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+							<h1><a href="#/" id="logo" ng-cloak>{{title}}</a></h1>
+
+							<!-- Nav -->
+							<nav id="nav" ng-hide="{{ !hasRoutes() }}" ng-cloak>
+								<ul>
+									<li ng-repeat="route in getRoutes()" class="ng-class: selected === route.name ? 'current_page_item' : ''">
+										<a ng-href="#/{{route.path}}">{{route.name}}</a>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</header>
+
+					<!-- Banner -->
+					<div id="banner" ng-show="caption.length">
+						<h2 ng-bind-html="caption"></h2>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Main Wrapper -->
+			<div id="main-wrapper">
+				<div class="wrapper style1">
+					<div class="inner" ui-view ng-cloak>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				<footer id="footer" class="container">
+					<div class="row">
+						<div class="3u 12u(mobile)">
+
+							<!-- Links -->
+							<section ng-cloak ng-hide="{{ !hasLinks() }}">
+								<h2>Links</h2>
+								<ul class="divided">
+									<li ng-repeat="link in getLinks()">
+										<a ng-href="{{link.src}}">{{link.name}}</a>
+									</li>
+								</ul>
+							</section>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="12u">
+							<div id="copyright">
+								<ul class="menu">
+									<li>&copy; MCS. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+
+		<!-- Mobile menu & nav -->
+		<div id="titleBar">
+			<a href="#navPanel" class="toggle"></a>
+			<span class="title">{{title}}</span>
+		</div>
+
+		<div id="navPanel">
+			<nav>
+				<!-- indent = Math.max(0, $this.parents('li').length - 1) -->
+				<a ng-repeat="route in getRoutes()" class="link depth-0" href="#/{{route.path}}">
+					<span class="indent-0"></span>
+					{{route.name}}
+				</a>
+			</nav>
+		</div>
+
+		<!-- Scripts -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/skel/3.0.0.dev/skel.min.js"></script>
+
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-sanitize.min.js"></script>
+
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/skel-viewport.min.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
+		<script src="assets/js/util.js"></script>
+
+		<script src="assets/js/app.js"></script>
+		<script src="assets/js/services.js"></script>
+		<script src="assets/js/controllers.js"></script>
+
+	</body>
+</html>
